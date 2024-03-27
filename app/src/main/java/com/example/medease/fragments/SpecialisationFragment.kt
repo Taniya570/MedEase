@@ -28,9 +28,6 @@ class SpecialisationFragment : Fragment(), SpecialisationINterface {
     var auth = Firebase.auth
     lateinit var nameAdapter: NameAdapter
      var nameList = ArrayList<SpecialisationModel>()
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -7,11 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.medease.R
 import com.example.medease.adapters.DoctorAdapter
 import com.example.medease.databinding.FragmentDoctorBinding
 import com.example.medease.models.DoctorModel
+import com.example.medease.models.SpecialisationModel
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.firestore
@@ -66,4 +68,8 @@ class DoctorFragment : Fragment() {
                 }
             }
     }
+    fun onNextCLick(specialisationModel: SpecialisationModel) {
+        findNavController().navigate(R.id.doctorFragment)
+    }
+
 }

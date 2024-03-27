@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
-        android:layout_marginStart="150dp"
+        android:layout_marginStart="80dp"
         android:text="name"
         android:id="@+id/tvDoctorName"
         android:textSize="20sp"/>
