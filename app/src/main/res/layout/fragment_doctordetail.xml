@@ -54,29 +54,49 @@
                    android:text="Currently working"
                    android:layout_marginStart="100dp"
                    android:id="@+id/tvWork"/>
-
-
-
-
-
-
-
-
-
            </LinearLayout>
-
        </LinearLayout>
-
-
-
-
-
-
-
-
-
    </androidx.cardview.widget.CardView>
-
-
-
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etSymptoms"
+        android:hint="Symptoms"
+        android:layout_marginTop="70dp"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:textStyle="italic|bold" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etHistory"
+        android:hint="Medical history"
+        android:layout_marginTop="70dp"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:textStyle="italic|bold" />
+    <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/imgUpload"
+            android:src="@drawable/background"
+            android:layout_marginTop="70dp"
+            android:layout_marginStart="20dp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnAdd"
+            android:text="Add image"
+            android:textColor="@color/black"
+            android:layout_marginStart="10dp" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:id="@+id/btnSubmit"
+            android:textColor="@color/black"
+            android:layout_marginStart="250dp"/>
 </LinearLayout>
+
+
+
