@@ -28,7 +28,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:background="#4F7075CD"
             android:fontFamily="cursive"
             android:text="@string/med_ease"
             android:textColor="#1B739E"

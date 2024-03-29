@@ -10,6 +10,8 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.medease.R
+import com.example.medease.activities.DoctorActivity
+import com.example.medease.activities.MainActivity
 import com.example.medease.adapters.DoctorAdapter
 import com.example.medease.databinding.FragmentDoctorBinding
 import com.example.medease.models.DoctorModel
@@ -24,11 +26,13 @@ class DoctorFragment : Fragment() {
     lateinit var binding: FragmentDoctorBinding
     var auth = Firebase.auth
     lateinit var doctorAdapter: DoctorAdapter
+    lateinit var mainActivity: DoctorActivity
     var itemList = ArrayList<DoctorModel>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        mainActivity = activity as DoctorActivity
         arguments?.let {
 
         }
@@ -36,7 +40,7 @@ class DoctorFragment : Fragment() {
             for (document in document.documentChanges){
                 var model = document.document.toObject(DoctorModel::class.java)
                 itemList.add(model)
-                println("ItemList:$itemList ")
+                println("ItemList:$itemList")
                 doctorAdapter.notifyDataSetChanged()
             }
         }.addOnFailureListener {
@@ -50,11 +54,17 @@ class DoctorFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding=FragmentDoctorBinding.inflate(layoutInflater)
+        doctorAdapter = DoctorAdapter(itemList)
         binding.rvDoctor.layoutManager = LinearLayoutManager(requireContext())
         binding.rvDoctor.adapter = doctorAdapter
         println("hello Android")
 
         return binding.root
+    }
+    override fun onResume() {
+        super.onResume()
+        mainActivity.binding.toolbar.title = "List of Doctors"
+
     }
 
     companion object {
