@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.medease.R
 import com.example.medease.activities.DoctorActivity
 import com.example.medease.activities.MainActivity
+import com.example.medease.activities.ThirdActivity
 import com.example.medease.adapters.DoctorAdapter
 import com.example.medease.databinding.FragmentDoctorBinding
 import com.example.medease.models.DoctorModel
@@ -26,13 +27,13 @@ class DoctorFragment : Fragment() {
     lateinit var binding: FragmentDoctorBinding
     var auth = Firebase.auth
     lateinit var doctorAdapter: DoctorAdapter
-    lateinit var mainActivity: DoctorActivity
+    lateinit var thirdActivity: ThirdActivity
     var itemList = ArrayList<DoctorModel>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mainActivity = activity as DoctorActivity
+        thirdActivity = activity as ThirdActivity
         arguments?.let {
 
         }
@@ -63,7 +64,7 @@ class DoctorFragment : Fragment() {
     }
     override fun onResume() {
         super.onResume()
-        mainActivity.binding.toolbar.title = "List of Doctors"
+        thirdActivity.binding.toolbar.title = "List of Doctors"
 
     }
 

@@ -33,30 +33,27 @@ class DoctordetailFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
+
+        }
             db.collection("Doctors").get().addOnSuccessListener { document ->
                 for (document in document.documentChanges) {
                     var model = document.document.toObject(DoctordetailModel::class.java)
                     itemList.add(model)
-                    println("ItemList:$itemList")
+                    println(" :$itemList")
                 }
             }.addOnFailureListener {
                 Toast.makeText(requireContext(), it.message.toString(), Toast.LENGTH_SHORT).show()
                 Log.e("exception in firebase", it.message.toString())
             }
         }
-        type = it.getStringExtra("TYPE")
-        if (it.getSerializableExtra("DATA") != null)
-            detail = it.getSerializableExtra("DATA") as detail
-    }
-    if (type == "UPDATE") {
-        binding.etSymptoms.setText(Category?.DISPLAY)
-        binding.etHistory.setText(Category?.DISPLAY)
-        binding.btnSubmit.visibility = View.VISIBLE
-    }
 
 
-}
-}
+//    if (type == "UPDATE") {
+//        binding.etSymptoms.setText(Category?.DISPLAY)
+//        binding.etHistory.setText(Category?.DISPLAY)
+//        binding.btnSubmit.visibility = View.VISIBLE
+//    }
+
 
     override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?,
@@ -65,7 +62,7 @@ class DoctordetailFragment : Fragment() {
     val layoutInflater = null
     var binding = layoutInflater?.let { FragmentDoctordetailBinding.inflate(it) }
 
-    return binding.root
+    return binding?.root
 
 
 }

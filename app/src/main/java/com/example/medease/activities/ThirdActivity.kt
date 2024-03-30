@@ -24,6 +24,8 @@ import com.google.firebase.firestore.firestore
         binding = ActivityThirdBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+//        supportActionBar(binding.toolbar)
+        setSupportActionBar(binding.toolbar)
         navController = findNavController(R.id.fragment)
 
 
