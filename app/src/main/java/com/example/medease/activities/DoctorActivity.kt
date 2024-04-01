@@ -9,6 +9,7 @@ import com.example.medease.R
 import com.example.medease.databinding.ActivityDoctorBinding
 import com.example.medease.databinding.ActivityThirdBinding
 import com.example.medease.databinding.SpecialisationItemBinding
+import com.example.medease.fragments.DoctordetailFragment
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.firestore
@@ -24,7 +25,7 @@ class DoctorActivity : AppCompatActivity() {
         setContentView(binding.root)
         navController = findNavController(R.id.fragment)
         binding.fabBack.setOnClickListener {
-            startActivity(Intent(this, ThirdActivity::class.java))
+            startActivity(Intent(this,DoctordetailFragment::class.java))
         }
     }
     override fun onResume() {

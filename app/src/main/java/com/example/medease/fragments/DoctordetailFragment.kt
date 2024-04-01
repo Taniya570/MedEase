@@ -28,13 +28,15 @@ class DoctordetailFragment : Fragment() {
     var auth = Firebase.auth
     var type: String? = "ADD"
     var itemList = ArrayList<DoctordetailModel>()
+    var CatId = ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
+            CatId = it.getString("CatId").toString()
 
-        }
+
             db.collection("Doctors").get().addOnSuccessListener { document ->
                 for (document in document.documentChanges) {
                     var model = document.document.toObject(DoctordetailModel::class.java)
@@ -46,13 +48,7 @@ class DoctordetailFragment : Fragment() {
                 Log.e("exception in firebase", it.message.toString())
             }
         }
-
-
-//    if (type == "UPDATE") {
-//        binding.etSymptoms.setText(Category?.DISPLAY)
-//        binding.etHistory.setText(Category?.DISPLAY)
-//        binding.btnSubmit.visibility = View.VISIBLE
-//    }
+    }
 
 
     override fun onCreateView(
@@ -61,6 +57,30 @@ class DoctordetailFragment : Fragment() {
 ): View? {
     val layoutInflater = null
     var binding = layoutInflater?.let { FragmentDoctordetailBinding.inflate(it) }
+        if (binding != null) {
+            binding.btnSubmit.setOnClickListener {
+                val detail = hashMapOf(
+                    "symptoms" to binding.etSymptoms.text.toString(),
+                    "history" to binding.etHistory.text.toString()
+                )
+            }
+        }
+        db.collection("Details").document(CatId).set(itemList)
+            .addOnSuccessListener {
+                Toast.makeText(requireActivity(), "detail submit", Toast.LENGTH_SHORT).show()
+
+            }
+            .addOnFailureListener {
+                Toast.makeText(
+                    requireActivity(),
+                    "details not submit" + it.message,
+                    Toast.LENGTH_SHORT
+                )
+                    .show()
+
+            }
+
+
 
     return binding?.root
 
@@ -79,4 +99,8 @@ companion object {
 
 
 }
+    fun onNextCLick(doctorModel: DoctorModel) {
+        findNavController().navigate(R.id.doctordetailFragment)
+    }
+
 }

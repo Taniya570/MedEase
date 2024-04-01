@@ -14,5 +14,10 @@
         android:name="com.example.medease.fragments.DoctorFragment"
         android:label="fragment_doctor"
         tools:layout="@layout/fragment_doctor" />
+    <fragment
+        android:id="@+id/doctordetailFragment"
+        android:name="com.example.medease.fragments.DoctordetailFragment"
+        android:label="DoctordetailFragment"
+       tools:layout="@layout/fragment_doctordetail" />
 
 </navigation>

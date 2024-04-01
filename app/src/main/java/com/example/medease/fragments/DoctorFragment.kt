@@ -66,6 +66,7 @@ class DoctorFragment : Fragment() {
         super.onResume()
         thirdActivity.binding.toolbar.title = "List of Doctors"
 
+
     }
 
     companion object {
